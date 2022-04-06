@@ -1,5 +1,6 @@
 body {
     font-family: 'Jost', sans-serif;
+    background: #555;
 }
 
 .truncate {
@@ -10,14 +11,23 @@ body {
 }
 
 .card img {
-  height: 250px;
+  /* height: 250px; */
   object-fit: cover;
 }
 
 .card{
     border:1px solid #707;
+    background: #dceff7;
     transition: all 0.4s;
 }
 .card:hover{
     border:1px solid #ddd;
+}
+
+footer{
+  color:#fff;
+}
+
+footer ul li a{
+  color:#ddd !important;
 }

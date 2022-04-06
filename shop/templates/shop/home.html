@@ -16,10 +16,15 @@
                         <div class="card cards">
 
                             {% if product.image %}
-                                <img style="height: 16rem;" src="{{ product.image.url }}" class="card-img-top" alt="product"
-                                />
+                                <div style="height: 16rem;">
+                                    <img style="width: 100%; height:100%" src="{{ product.image.url }}" class="card-img-top" alt="product"/>
+                                </div>
+                                
                             {% else %}
-                                <img src="{% static 'images/default-product.png' %} class="card-img-top" alt="product"/>
+                                <div style="height: 16rem;">
+                                    <img src="{% static 'images/default-product.png' %} class="card-img-top" alt="product"/>
+                                </div>
+                                
                             {% endif %}
                             
                             <div class="card-body">
@@ -32,7 +37,7 @@
                                 </div>
                     
                                 <div class="d-flex justify-content-between">
-                                    <a href="#" class="btn btn-dark">View Details</a>
+                                    <a href="#" class="btn btn-outline-success">View Details</a>
                                     <a href="#" class="btn btn-info text-white">Add To Cart</a>
                                 </div>
                             </div>
@@ -46,12 +51,14 @@
             <!-- category list start -->
             <div class="col-md-2">
                 <ul class="list-group">
-                    <li class="list-group-item active" aria-current="true">
+                    <li class="list-group-item bg-info text-white" aria-current="true">
                     Category
                     </li>
                     
                     {% for category in categories %}
-                        <li class="list-group-item">{{ category.name }}</li>
+                        <li class="list-group-item">
+                            <a href="/?category={{category.id}}" class="text-decoration-none">{{ category.name }}</a>
+                        </li>
                     {% endfor %}
                 </ul>
             </div>
