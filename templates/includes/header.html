@@ -5,12 +5,16 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class=" ml-5 collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
-        <form class="d-flex justify-content-around">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex justify-content-around" method="POST">
+          {% csrf_token %}
+          <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         
         <ul class="navbar-nav ml-3 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'cart' %}">Cart ({{items_count}})</a>
+          </li>
           {% if request.user.is_authenticated %}
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

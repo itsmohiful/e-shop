@@ -17,6 +17,7 @@
                             {% for fields in form %}
                                 <label for="" class="my-2 block"> {{ fields.label_tag }} </label> <br>
                                 {{ fields }}
+                                <div class="mt-2">{{ fields.errors }}</div>
                             {% endfor %}
                             <button type="submit" class="mt-2 btn btn-success">Sign Up</button>
                         </form>

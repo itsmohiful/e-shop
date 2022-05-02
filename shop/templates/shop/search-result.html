@@ -8,10 +8,11 @@
 
     <div class="container mt-3">
         <div class="row">
+            <h4 class="text-white">You have search for "{{query}}"</h4>
             <!-- product list start -->
             <div class="col-md-10">
                 <div class="row">
-                    {% for product in products %}
+                    {% for product in results %}
                     <div class="col-md-4 mb-3">
                         <div class="card cards">
 
@@ -54,43 +55,16 @@
                     <li class="list-group-item bg-info text-white" aria-current="true">
                     Category
                     </li>
-
-                    <li class="list-group-item">
-                        <a href="{% url 'home' %}" class="text-decoration-none">All Products</a>
-                    </li>
                     
                     {% for category in categories %}
                         <li class="list-group-item">
-                            <a href="{% url 'product-by-category' category.slug %}" class="text-decoration-none">{{ category.name }}</a>
+                            <a href="/?category={{category.slug}}" class="text-decoration-none">{{ category.name }}</a>
                         </li>
                     {% endfor %}
                 </ul>
             </div>
             <!-- category list end -->
         </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="pagination">
-                    <span class="step-links">
-                        {% if products.has_previous %}
-                            <a class="btn btn-secondary text-white" href="?page=1">&laquo; first</a>
-                            <a class="btn btn-secondary text-white" href="?page={{ products.previous_page_number }}">previous</a>
-                        {% endif %}
-                
-                        <span class="current btn btn-secondary text-white">
-                            Page {{ products.number }} of {{ products.paginator.num_pages }}.
-                        </span>
-                
-                        {% if products.has_next %}
-                            <a class="btn btn-secondary text-white" href="?page={{ products.next_page_number }}">next</a>
-                            <a class="btn btn-secondary text-white" href="?page={{ products.paginator.num_pages }}">last &raquo;</a>
-                        {% endif %}
-                    </span>
-                </div>
-            </div>
-        </div>
-
     </div>
 
 {% endblock  %}
