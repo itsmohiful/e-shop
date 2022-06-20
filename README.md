@@ -1,5 +1,5 @@
 # e-shop
-##Feature:
+##  Feature:
   - Authentication and authorization
   - Add a product
   - Update, delete product
